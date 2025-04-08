@@ -8,6 +8,8 @@
 \usepackage[utf8]{inputenc}
 \usepackage[english,russian]{babel}
 \usepackage{amsthm, amsmath}
+\usepackage{graphicx}
+\usepackage{subcaption}
 \usepackage[
 	backend=biber,
 	citestyle=gost-footnote-min,
@@ -27,6 +29,7 @@
 
 \newtheorem{definition}{Определение}
 \newtheorem{theorem}{Теорема}
+\newtheorem{lemma}{Лемма}
 \newtheorem{corollary}{Следствие}
 
 \begin{document}
@@ -40,12 +43,37 @@
 		Правым \textit{полигоном} над полугруппой $S$ называется множество $X$ с отображением $ X \times S \rightarrow X $, $(x, s) \mapsto xs $ таким, что для любых $x \in X$, $s, t \in S$ выполняется равенство $ x (st) = (xs)t $.
 	\end{definition}
 
+	\pause
+
 	\begin{figure}
 		\center
 		\includegraphics[width=0.3\textwidth]{MooreMachine}
+		\caption{Пример полигона (автомат Мура).}
 	\end{figure}
 
+\end{frame}
+
+\begin{frame}
+	\frametitle{Полигон}
+
 	\textit{Копроизведением} $\coprod_{i \in I} X_i$ полигонов $X_i$ над одной полугруппой называется их дизъюнктное объединение.
+
+	\vspace{1cm}
+
+	\begin{figure}[t!]
+		\centering
+		\begin{subfigure}[t]{0.4\textwidth}
+			\centering
+			\includegraphics[height=4cm]{MooreMachine.png}
+		\end{subfigure}
+		~
+		\begin{subfigure}[t]{0.4\textwidth}
+			\centering
+			\includegraphics[height=4cm]{MooreMachine.png}
+		\end{subfigure}
+
+		\caption{Пример полигона}
+	\end{figure}
 \end{frame}
 
 \begin{frame}
@@ -58,12 +86,12 @@
 	\end{definition}
 
 	Класс, в котором лежит пара $(x, y)$, обозначается $x \otimes y$.
-	Из определения следует, что для любых $x \in X$, $y \in Y$, $s \in S$ выполняется равенство $ xs \otimes y = x \otimes sy$.
+	Из определения следует, что для любых $x \in X$, $y \in Y$, $s \in S$ выполняется равенство $$ xs \otimes y = x \otimes sy. $$
 
 \end{frame}
 
 \begin{frame}
-	\frametitle{Плоскостность}
+	\frametitle{Плоский полигон}
 
 	\begin{definition}
 		Морфизм $f: A \rightarrow B$ в категории $\mathcal{C}$ называется \textit{мономорфизмом}, если на него можно сократить слева, то есть выполняется импликация:
@@ -88,15 +116,6 @@
 
 	Его можно рассматривать как полигон над свободной циклической полугруппой $S = \langle a \rangle = \{ a, a^2, a^3, a^4, \ldots \}$.
 	Здесь $f(x) = xa$, $f(f(x)) = x a^2$ и т.д.
-
-	\pause
-	\vspace{0.5cm}
-
-	Тензорное произведение $ X \otimes Y $ -- тоже унар.
-	При этом, для любого $x \otimes y \in X \otimes Y$
-	\[
-		(x \otimes y) a = x \otimes ya = x \otimes a y = xa \otimes y = ax \otimes y = a (x \otimes y).
-	\]
 \end{frame}
 
 \begin{frame}
@@ -118,30 +137,19 @@
 \begin{frame}
 	\frametitle{Унары}
 
-	\begin{figure}
-		\center
-		\includegraphics[width=0.45\textwidth]{line}
-		\caption{Прямая (унар).}
-	\end{figure}
+	\begin{figure}[t!]
+		\centering
+		\begin{subfigure}[t]{0.45\textwidth}
+			\centering
+			\includegraphics[height=7mm]{line.png}
+		\end{subfigure}
+		~
+		\begin{subfigure}[t]{0.45\textwidth}
+			\centering
+			\includegraphics[height=2cm]{cycle.png}
+		\end{subfigure}
 
-	\begin{figure}
-		\center
-		\includegraphics[width=0.15\textwidth]{cycle}
-		\caption{Цикл $C_n$ длины $n$.}
-	\end{figure}
-\end{frame}
-
-\begin{frame}
-	\frametitle{Связные унары}
-
-	\begin{definition}
-		Унар $X$ называется \textit{связным}, если для любых $x_1, x_2 \in X$ существуют такие $i, j$, что $x_1 a^i = x_2 a^j$.
-	\end{definition}
-
-	\begin{figure}
-		\center
-		\includegraphics[width=1.0\textwidth]{connected_unars}
-		\caption{Связные унары.}
+		\caption{Прямая (унар) и цикл $C_n$ длины $n$.}
 	\end{figure}
 \end{frame}
 
@@ -151,28 +159,34 @@
 	\begin{theorem}
 		Унар $X$ является плоским в том и только том случае, если $X$ -- копроизведение унаров, являющихся прямыми, лучами или циклами\footcite[теорема]{flat_unars}.
 	\end{theorem}
+
+	\begin{figure}
+		\center
+		\includegraphics[width=0.4\textwidth]{flat_unar_1.png}
+		\caption{Плоский унар}
+	\end{figure}
 \end{frame}
 
 \begin{frame}
-	\frametitle{Полигоны, близкие к плоским}
+	\frametitle{Унары, близкие к плоским}
 
 	\begin{definition}
-		Полигон $X$ называется\footcite[определения III.9.1 и III.8.1]{kilp}
+		Унар $X$ называется\footcite[определения III.9.1 и III.8.1]{kilp}
 
 		\begin{itemize}
 			\item коуниверсально плоским, если функтор $X \otimes - $ сохраняет коуниверсальный квадрат;
 			\item уравнительно плоским, если функтор $X \otimes - $ сохраняет уравнители;
-			\item сильно плоским, если он является коуниверсально плоским и уравнительно плоским;
+			% \item сильно плоским, если он является коуниверсально плоским и уравнительно плоским;
 			\item плоским, если функтор $X \otimes - $ сохраняет мономорфизмы;
 		\end{itemize}
 	\end{definition}
 \end{frame}
 
 \begin{frame}
-	\frametitle{Полигоны, близкие к плоским (продолжение)}
+	\frametitle{Унары, близкие к плоским (продолжение)}
 
 	\begin{definition}
-		Полигон $X$ называется\footcite[определения III.9.1 и III.8.1]{kilp}
+		Унар $X$ называется\footcite[определения III.9.1 и III.8.1]{kilp}
 
 		\begin{itemize}
 			\item слабо плоским, если функтор $X \otimes - $ сохраняет все вложения левых иделов в $S$;
@@ -181,6 +195,20 @@
 		\end{itemize}
 
 	\end{definition}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Унар без кручения}
+
+	\begin{lemma}
+		Пусть $X$ -- унар. Если $x, x'$ -- различные элементы из $X$ такие, что $x a = x' a$, то унар $X$ не является унаром без кручения\footcite[лемма 3]{pryan:unars_close_to_flat}.
+	\end{lemma}
+
+	\begin{figure}
+		\center
+		\includegraphics[width=0.2\textwidth]{torsion_free.png}
+		\caption{Унар с кручением}
+	\end{figure}
 \end{frame}
 
 \begin{frame}
@@ -206,7 +234,38 @@
 \end{frame}
 
 \begin{frame}
-	\frametitle{Обзор}
+	\frametitle{Точные и строго точные полигоны}
+
+	% "Точное действие"\ на языке автоматов означает, что разные входные слова по-разному воздействуют хотя бы на одно из состояний автомата.
+	% Действие является строго точным, если разные входные слова по разному воздействуют на все состояния автомата.
+
+	\begin{definition}
+		Полигон $X_S$ называется \textit{точным}, если для $s,t \in S$ выполняется импликация: если $xs = xt$ для всех $x \in X$, то $s = t$.
+	\end{definition}
+
+	\begin{definition}
+		Полигон $X_S$ называется \textit{строго точным}, если для $s, t \in S$ выполняется импликация: если $xs = xt$ для некоторого $x \in X$, то $s = t$\footcite[определение I.4.8]{kilp}.
+	\end{definition}
+
+	Очевидно, что если полигон является строго точным, то он является точным.
+\end{frame}
+
+\begin{frame}
+	\frametitle{Регулярные полигоны}
+
+	Пусть $X$ -- полигон над моноидом $S^1$.
+
+	\begin{definition}
+		Элемент $x \in X$ называется \textit{регулярным}, если существует гомоморфизм $\varphi: xS^1 \rightarrow S^1$ такой, что $x \varphi(x) = x$.
+	\end{definition}
+
+	\begin{definition}
+		Полигон $X$ над моноидом $S^1$ называется \textit{регулярным} полигоном, если каждый его элемент является регулярным\footcite[определение III.19.1]{kilp}.
+	\end{definition}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Полигоны, близкие к плоским}
 
 	\begin{figure}
 		\center
@@ -215,23 +274,116 @@
 \end{frame}
 
 \begin{frame}
+	\frametitle{Унары, близкие к плоским}
+
+	\begin{figure}
+		\center
+		\includegraphics[width=0.5\textwidth]{overview_2.png}
+	\end{figure}
+\end{frame}
+
+\begin{frame}
 	\frametitle{Результаты}
 
 	\begin{corollary}
-		Для любого унара $X$ верны следующие эквивалентности:
+		Для любого унара $X$ верны следующие эквивалентности:\footcite[следствие 3]{pryan:unars_close_to_flat}
 		\begin{multline*}
 			\text{(P)} \Leftrightarrow \text{плоский} \Leftrightarrow \text{слабо плоский} \Leftrightarrow \text{главно слабо плоский} \Leftrightarrow \\
 			\Leftrightarrow \text{без кручения}.
 		\end{multline*}
 	\end{corollary}
 
+	\begin{theorem}
+		Унар $X$ является плоским в том и только том случае, если $X$ -- копроизведение унаров, являющихся прямыми, лучами или циклами\footcite[теорема]{flat_unars}.
+	\end{theorem}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Унары, близкие к плоским}
+
+	\begin{figure}
+		\center
+		\includegraphics[width=0.5\textwidth]{overview_3.png}
+	\end{figure}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Результаты}
+
 	\begin{corollary}
-		Для любого унара $X$ верны следующие импликации:
+		Для любого унара $X$ верны следующие импликации:\footcite[следствие 4]{pryan:unars_close_to_flat}
 		\begin{gather*}
-			\text{коуниверсально плоский} \Leftrightarrow \text{уравнительно плоский} \Rightarrow \text{(E)} \\
-			\Leftrightarrow \text{строго точный} \Leftrightarrow \text{точный} \Leftrightarrow \text{регулярный.}
+			\text{коуниверсально плоский} \Leftrightarrow \text{уравнительно плоский} \Rightarrow \text{(E)}.
 		\end{gather*}
 	\end{corollary}
+
+	\begin{theorem}
+		Унар является уравнительно плоским тогда и только тогда, когда он является копроизведением унаров, являющихся прямыми либо лучами\footcite[теорема 3]{pryan:unars_close_to_flat}.
+	\end{theorem}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Унары, близкие к плоским}
+
+	\begin{figure}
+		\center
+		\includegraphics[width=0.6\textwidth]{overview_4.png}
+	\end{figure}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Результаты}
+
+	\begin{corollary}
+		Для любого унара $X$ верны следующие импликации:\footcite[следствие 4]{pryan:unars_close_to_flat}
+		\begin{gather*}
+			\text{(E)} \Leftrightarrow \text{строго точный} \Leftrightarrow \text{точный} \Leftrightarrow \text{регулярный.}
+		\end{gather*}
+	\end{corollary}
+
+	\begin{theorem}
+		Унар удовлетворяет условию (Е) тогда и только тогда, когда он не содержит циклов.
+	\end{theorem}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Связные унары}
+
+	\begin{definition}
+		Унар $X$ называется \textit{связным}, если для любых $x_1, x_2 \in X$ существуют такие $i, j$, что $x_1 a^i = x_2 a^j$.
+	\end{definition}
+
+	\begin{figure}
+		\center
+		\includegraphics[width=1.0\textwidth]{connected_unars}
+		\caption{Связные унары}
+	\end{figure}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Унары, близкие к плоским}
+
+	\begin{figure}
+		\center
+		\includegraphics[width=0.7\textwidth]{overview_5.png}
+	\end{figure}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Результаты}
+
+	\begin{theorem}
+		Унар проективен тогда и только тогда, когда он является копроизведением лучей\footcite[теорема 1]{sahar}.
+	\end{theorem}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Унары, близкие к плоским}
+
+	\begin{figure}
+		\center
+		\includegraphics[width=0.7\textwidth]{overview_6.png}
+	\end{figure}
 \end{frame}
 
 \end{document}
