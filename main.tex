@@ -154,6 +154,20 @@
 \end{frame}
 
 \begin{frame}
+	\frametitle{Связные унары}
+
+	\begin{definition}
+		Унар $X$ называется \textit{связным}, если для любых $x_1, x_2 \in X$ существуют такие $i, j$, что $x_1 a^i = x_2 a^j$.
+	\end{definition}
+
+	\begin{figure}
+		\center
+		\includegraphics[width=1.0\textwidth]{connected_unars}
+		\caption{Связные унары}
+	\end{figure}
+\end{frame}
+
+\begin{frame}
 	\frametitle{Плоские унары}
 
 	\begin{theorem}
@@ -174,26 +188,15 @@
 		Унар $X$ называется\footcite[определения III.9.1 и III.8.1]{kilp}
 
 		\begin{itemize}
-			\item коуниверсально плоским, если функтор $X \otimes - $ сохраняет коуниверсальный квадрат;
 			\item уравнительно плоским, если функтор $X \otimes - $ сохраняет уравнители;
-			% \item сильно плоским, если он является коуниверсально плоским и уравнительно плоским;
-			\item плоским, если функтор $X \otimes - $ сохраняет мономорфизмы;
-		\end{itemize}
-	\end{definition}
-\end{frame}
-
-\begin{frame}
-	\frametitle{Унары, близкие к плоским (продолжение)}
-
-	\begin{definition}
-		Унар $X$ называется\footcite[определения III.9.1 и III.8.1]{kilp}
-
-		\begin{itemize}
-			\item слабо плоским, если функтор $X \otimes - $ сохраняет все вложения левых иделов в $S$;
+			\item коуниверсально плоским, если функтор $X \otimes - $ сохраняет коуниверсальный квадрат;
+			\item слабо плоским, если функтор $X \otimes - $ сохраняет все вложения левых идеалов в $S$;
 			\item главно слабо плоским, если функтор $X \otimes - $ сохраняет все вложения главных левых идеалов в $S$;
 			\item унаром без кручения, если $\forall x, x' \in X$, $\forall s \in S$ $xs = x's \rightarrow x = x'$.
-		\end{itemize}
 
+			      % \item сильно плоским, если он является коуниверсально плоским и уравнительно плоским;
+			      % \item плоским, если функтор $X \otimes - $ сохраняет мономорфизмы;
+		\end{itemize}
 	\end{definition}
 \end{frame}
 
@@ -247,7 +250,7 @@
 		Полигон $X_S$ называется \textit{строго точным}, если для $s, t \in S$ выполняется импликация: если $xs = xt$ для некоторого $x \in X$, то $s = t$\footcite[определение I.4.8]{kilp}.
 	\end{definition}
 
-	Очевидно, что если полигон является строго точным, то он является точным.
+	% Очевидно, что если полигон является строго точным, то он является точным.
 \end{frame}
 
 \begin{frame}
@@ -342,16 +345,12 @@
 	\end{corollary}
 
 	\begin{theorem}
-		Унар удовлетворяет условию (Е) тогда и только тогда, когда он не содержит циклов.
+		Унар удовлетворяет условию (Е) тогда и только тогда, когда он не содержит циклов\footcite[теорема 4]{pryan:unars_close_to_flat}.
 	\end{theorem}
 \end{frame}
 
 \begin{frame}
 	\frametitle{Связные унары}
-
-	\begin{definition}
-		Унар $X$ называется \textit{связным}, если для любых $x_1, x_2 \in X$ существуют такие $i, j$, что $x_1 a^i = x_2 a^j$.
-	\end{definition}
 
 	\begin{figure}
 		\center
@@ -384,6 +383,27 @@
 		\center
 		\includegraphics[width=0.7\textwidth]{overview_6.png}
 	\end{figure}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Публикации}
+
+	\begin{itemize}
+		\item \cite{flat_unars}
+		\item \cite{pryan:unars_close_to_flat}
+	\end{itemize}
+
+\end{frame}
+
+\begin{frame}
+	\frametitle{Дальнейшие исследования}
+
+	\begin{itemize}
+		\item Вполне простые полугруппы;
+		\item Группы;
+		\item $S = \langle a, b \mid xy = yx \rangle$.
+	\end{itemize}
+
 \end{frame}
 
 \end{document}
