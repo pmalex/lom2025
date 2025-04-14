@@ -160,6 +160,8 @@
 		Унар $X$ называется \textit{связным}, если для любых $x_1, x_2 \in X$ существуют такие $i, j$, что $x_1 a^i = x_2 a^j$.
 	\end{definition}
 
+	\pause
+
 	\begin{figure}
 		\center
 		\includegraphics[width=1.0\textwidth]{connected_unars}
@@ -183,56 +185,67 @@
 
 \begin{frame}
 	\frametitle{Унары, близкие к плоским}
+	
+	Унар $X$ называется\footcite[определения III.9.1 и III.8.1]{kilp}
 
-	\begin{definition}
-		Унар $X$ называется\footcite[определения III.9.1 и III.8.1]{kilp}
+	\begin{itemize}
+		\item уравнительно плоским, если функтор $X \otimes - $ сохраняет уравнители; \pause
+		\item коуниверсально плоским, если функтор $X \otimes - $ сохраняет коуниверсальный квадрат; \pause
+		\item слабо плоским, если функтор $X \otimes - $ сохраняет все вложения левых идеалов в $S$; \pause
+		\item главно слабо плоским, если функтор $X \otimes - $ сохраняет все вложения главных левых идеалов в $S$;
 
-		\begin{itemize}
-			\item уравнительно плоским, если функтор $X \otimes - $ сохраняет уравнители;
-			\item коуниверсально плоским, если функтор $X \otimes - $ сохраняет коуниверсальный квадрат;
-			\item слабо плоским, если функтор $X \otimes - $ сохраняет все вложения левых идеалов в $S$;
-			\item главно слабо плоским, если функтор $X \otimes - $ сохраняет все вложения главных левых идеалов в $S$;
-			\item унаром без кручения, если $\forall x, x' \in X$, $\forall s \in S$ $xs = x's \rightarrow x = x'$.
-
-			      % \item сильно плоским, если он является коуниверсально плоским и уравнительно плоским;
-			      % \item плоским, если функтор $X \otimes - $ сохраняет мономорфизмы;
-		\end{itemize}
-	\end{definition}
+		% \item сильно плоским, если он является коуниверсально плоским и уравнительно плоским;
+		% \item плоским, если функтор $X \otimes - $ сохраняет мономорфизмы;
+	\end{itemize}
 \end{frame}
 
 \begin{frame}
-	\frametitle{Унар без кручения}
+	\frametitle{Унары без кручения}
 
-	\begin{lemma}
-		Пусть $X$ -- унар. Если $x, x'$ -- различные элементы из $X$ такие, что $x a = x' a$, то унар $X$ не является унаром без кручения\footcite[лемма 3]{pryan:unars_close_to_flat}.
-	\end{lemma}
+	Унар $X$ называется унаром без кручения, если $\forall x, x' \in X$, $\forall s \in S$ $xs = x's \rightarrow x = x'$.
+
+	\pause
 
 	\begin{figure}
 		\center
 		\includegraphics[width=0.2\textwidth]{torsion_free.png}
 		\caption{Унар с кручением}
 	\end{figure}
-\end{frame}
 
-\begin{frame}
-	\frametitle{Условия (Р) и (Е)}
-
-	\begin{definition}
-		\begin{itemize}
-			\item Будем говорить\footcite[определение III.9.4]{kilp}, что полигон $X$ над полугруппой $S$ удовлетворяет условию (P), если для него выполняется импликация: если $xs = x' s'$ для $x, x' \in X$, $s, s' \in S$, то существуют $x'' \in X$, $u,v \in S$ такие, что $x = x'' u$, $x' = x'' v$, $u s = v s'$;
-			\item Полигон $X$ над полугруппой $S$ удовлетворяет условию (E), если для него выполняется импликация: если $x s = x s'$ для $x \in X$, $s, s' \in S$, то существуют $x' \in X$, $u \in S$ такие, что $x = x' u$, $us = us'$.
-		\end{itemize}
-	\end{definition}
-
-\end{frame}
-
-\begin{frame}
-	\frametitle{Условия (Р) и (Е)}
+	\pause
 
 	\begin{figure}
 		\center
-		\includegraphics[width=0.8\textwidth]{p_and_e}
-		\caption{Условия (Р) и (Е).}
+		\includegraphics[width=0.4\textwidth]{flat_unar_1.png}
+		\caption{Унары без кручения}
+	\end{figure}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Условие (Р)}
+
+	\begin{definition}
+		Будем говорить\footcite[определение III.9.4]{kilp}, что полигон $X$ над полугруппой $S$ удовлетворяет условию (P), если для него выполняется импликация: если $xs = x' s'$ для $x, x' \in X$, $s, s' \in S$, то существуют $x'' \in X$, $u,v \in S$ такие, что $x = x'' u$, $x' = x'' v$, $u s = v s'$;
+	\end{definition}
+
+	\begin{figure}
+		\center
+		\includegraphics[width=0.3\textwidth]{cond_p.png}
+		\caption{Условие (Р).}
+	\end{figure}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Условие (Е)}
+
+	\begin{definition}
+		Полигон $X$ над полугруппой $S$ удовлетворяет условию (E), если для него выполняется импликация: если $x s = x s'$ для $x \in X$, $s, s' \in S$, то существуют $x' \in X$, $u \in S$ такие, что $x = x' u$, $us = us'$.
+	\end{definition}
+
+	\begin{figure}
+		\center
+		\includegraphics[width=0.4\textwidth]{cond_e.png}
+		\caption{Условие (Е).}
 	\end{figure}
 \end{frame}
 
@@ -399,8 +412,6 @@
 	\frametitle{Дальнейшие исследования}
 
 	\begin{itemize}
-		\item Вполне простые полугруппы;
-		\item Группы;
 		\item $S = \langle a, b \mid xy = yx \rangle$.
 	\end{itemize}
 
